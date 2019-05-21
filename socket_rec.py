@@ -1,8 +1,9 @@
+#!/usr/bin/python3
 #receiver's code
 import socket
 
 #target machine's ip number
-target_ip = '192.168.10.169'
+target_ip = "0.0.0.0"
 
 #target machine's port number
 
@@ -18,3 +19,4 @@ s.bind((target_ip,target_port))
 while True:
     mydata = s.recvfrom(100) #100 is the maximum size of message
     print(mydata)
+    s.sendto("Nice".encode('ascii'),mydata[1])
